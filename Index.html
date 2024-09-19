@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Himanish Angrish Portfolio</title>
+  <style>
+    /* Reset and Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    /* Navigation Bar */
+    .topnav {
+      background-color: #ff0000;
+      overflow: hidden;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .topnav a {
+      float: left;
+      display: block;
+      color: #ffffff;
+      text-align: center;
+      padding: 14px 20px;
+      font-size: 17px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .topnav a:hover {
+      background-color: #ffffff;
+      color: #1abc9c;
+    }
+
+    .topnav a.active {
+      background-color: #ffffff;
+      color: #ff0000;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("C:/Users/15197/Pictures/Code/HD-wallpaper-person-in-black-hoodie-jacket.jpg");
+      height: 100vh;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #ffffff;
+      padding-top: 60px; /* Height of the navbar */
+    }
+
+    /* Overlay to ensure text readability */
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    /* Positioning the text above the overlay */
+    .hero-section > div {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-section h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(255,0,0,0.7);
+    }
+
+    .hero-section p {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 3px rgba(255,0,0,0.5);
+    }
+
+    .hero-section .button {
+      padding: 12px 24px;
+      background-color: #ff0000;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+      text-decoration: none;
+    }
+
+    .hero-section .button:hover {
+      background-color: #cc0000;
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 60px 20px;
+      background-color: #272727;
+      text-align: center;
+    }
+
+    .about-section h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #ff0000;
+    }
+
+    .about-section p {
+      max-width: 800px;
+      margin: 0 auto 20px auto;
+      font-size: 18px;
+      color: #b4b4b4;
+    }
+
+    /* Skills Section */
+    .skills-section {
+      padding: 60px 20px;
+      background-color: #000000;
+      text-align: center;
+    }
+
+    .skills-section h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #ff0000;
+    }
+
+    .skills-section ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .skills-section li {
+      background-color: #ff0000;
+      color: #ffffff;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 20px;
+      font-size: 16px;
+      transition: transform 0.3s;
+    }
+
+    .skills-section li:hover {
+      transform: scale(1.1);
+      background-color: #cc0000;
+    }
+
+    /* Work Experience Section */
+    .work-section {
+      padding: 60px 20px;
+      background-color: #3d3d3d;
+      text-align: center;
+    }
+
+    .work-section h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+      color: #ff0000;
+    }
+
+    .work-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .work-card {
+      background-color: #000000;
+      border: 1px solid #ff0000;
+      border-radius: 8px;
+      width: 300px;
+      margin: 15px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(255, 0, 0, 0.5);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .work-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .work-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .work-card h3 {
+      color: #ff0000;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .work-card p {
+      color: #dddddd;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 60px 20px;
+      background-color: #ff0000;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #000000;
+    } 
+
+    .contact-section p {
+      font-size: 18px;
+      margin-bottom: 40px;
+      color: #555555;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+      background-color: #272727;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(255,0,0,0.5);
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #ff0000;
+    }
+
+    .contact-form input[type=text],
+    .contact-form input[type=email],
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ff0000;
+      border-radius: 4px;
+      margin-bottom: 15px;
+      resize: vertical;
+      background-color: #333333;
+      color: #ffffff;
+    }
+
+    .contact-form input[type=submit] {
+      background-color: #ff0000;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+      width: 100%;
+    }
+
+    .contact-form input[type=submit]:hover {
+      background-color: #cc0000;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #ff0000;
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .footer p {
+      margin-bottom: 10px;
+    }
+
+    .footer .social-links a {
+      color: #ffffff;
+      margin: 0 10px;
+      font-size: 20px;
+      transition: color 0.3s;
+    }
+
+    .footer .social-links a:hover {
+      color: #000000;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .skills-section ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .skills-section li {
+        width: 80%;
+        text-align: center;
+      }
+
+      .work-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .work-card {
+        width: 90%;
+      }
+
+      .hero-section {
+        height: 70vh;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <div class="topnav">
+    <a class="active" href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#work">Work Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div>
+      <h1>Himanish Angrish</h1>
+      <p>Student at Western University | Project Management Ready Certified</p>
+      <a href="#contact" class="button">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <h2>About Me</h2>
+    <p>I am Himanish Angrish, a dedicated Software Engineering student at Western University with a passion for project management and developing innovative software solutions. My journey has equipped me with both technical expertise and leadership skills, allowing me to effectively manage projects and collaborate with diverse teams.</p>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section">
+    <h2>Skills</h2>
+    <ul>
+      <li>Project Management</li>
+      <li>Software Development (Python, JavaScript)</li>
+      <li>Web Development (HTML, CSS)</li>
+      <li>Problem Solving</li>
+    </ul>
+  </section>
+
+  <!-- Work Experience Section -->
+  <section id="work" class="work-section">
+    <h2>Work Experience</h2>
+    <div class="work-container">
+      <div class="work-card">
+        <img src="C:/Users/15197/Pictures/Code/Cohoon+Logo.png" alt="J.H. Cohoon Engineering Internship">
+        <h3>Intern at J.H. Cohoon Engineering</h3>
+        <p>Collaborated on engineering projects, assisting with designing and drafting. Gained hands-on experience through site visits and collaborating with other engineers.</p>
+      </div>
+      <div class="work-card">
+        <img src="C:/Users/15197/Pictures/Code/cashier2.152778_4x.jpg" alt="Cashier Position">
+        <h3>Subway Cashier</h3>
+        <p>Provided excellent customer service in a fast-paced environment. Developed strong communication skills and the ability to work efficiently under pressure.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <h2>Contact Me</h2>
+    <p>Reach out for any Questions or Concerns!</p>
+    <div class="contact-form">
+      <form action="/action_page.php" method="POST">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="_replyto" placeholder="Your email.." required>
+
+        <label for="subject">Message</label>
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px" required></textarea>
+
+        <input type="submit" value="Send">
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Contact: Brantford, ON | Email: <a href="mailto:hangrish@uwo.ca">hangrish@uwo.ca</a> | Phone: <a href="tel:519-759-9389">519-759-9389</a></p>
+    <div class="social-links">
+      <a href="https://linkedin.com/in/himanishangrish" target="_blank">LinkedIn</a> |
+      <a href="https://github.com/HimanishA4" target="_blank">GitHub</a> |   <!-- Only working link -->  
+      <a href="https://instagram.com/himanishangrish" target="_blank">Instagram</a>
+    </div>
+  </footer>
+
+</body>
+</html>
